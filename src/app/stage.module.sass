@@ -1,0 +1,23 @@
+.container
+  width: 100%
+  height: 100%
+  box-sizing: border-box
+  padding: 24px
+.grid
+  width: 100%
+  height: 100%
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  grid-template-rows: 1fr 1fr
+  gap: 24px
+.weather
+  grid-area: 1 / 1 / 2 /5
+.clock
+  grid-area: 1 / 5 / 2 / 13
+.weekly
+  grid-area: 2 / 1 / 3 / 11
+.config
+  grid-area: 2 / 11 / 3 / 13
+  display: flex
+  align-items: stretch
+
