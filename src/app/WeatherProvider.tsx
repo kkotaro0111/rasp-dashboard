@@ -32,11 +32,12 @@ function WeatherProvider ({ children }: Props) {
   const intervalRef = useRef(0)
 
   const params = {
-    "latitude": 33.95,
-    "longitude": 130.95,
+    "latitude": 35.6895,
+    "longitude": 139.6917,
     "current": ["temperature_2m", "precipitation", "rain", "weather_code"],
     "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "rain_sum", "precipitation_probability_max"],
-    "timezone": "Asia/Tokyo"
+    "timezone": "Asia/Tokyo",
+    "forecast_days": 8
   }
   const url = "https://api.open-meteo.com/v1/forecast"
 

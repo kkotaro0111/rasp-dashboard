@@ -2,6 +2,7 @@ import styles from './stage.module.sass'
 import Cell from '@/app/cell'
 import Clock from '@/app/clock'
 import Weather from '@/app/weather'
+import WeekWeathers from '@/app/weekWeathers'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
@@ -12,7 +13,7 @@ function Stage({}: Props) {
       <div className={styles.grid}>
         <div className={styles.weather}><Cell><Weather></Weather></Cell></div>
         <div className={styles.clock}><Cell><Clock></Clock></Cell></div>
-        <div className={styles.weekly}><Cell></Cell></div>
+        <div className={styles.weekly}><Cell><WeekWeathers></WeekWeathers></Cell></div>
         <div className={styles.config}><Cell></Cell></div>
       </div>
     </div>
