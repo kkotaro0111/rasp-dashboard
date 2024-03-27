@@ -1,0 +1,78 @@
+.container
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  gap: 16px
+.weather
+  position: relative
+  width: 100%
+  height: 96px
+.temperature
+  display: grid
+  grid-template-columns: auto auto
+  grid-template-rows: auto auto
+  gap: 0 16px
+.currentTemp
+  grid-area: 1/1/3/2
+  font-family: 'Open Sans', sans-serif
+  font-style: normal
+  font-weight: 700
+  font-size: 48px
+  line-height: 1
+  color: #fff
+.maxTemp
+  grid-area: 1/2/2/3
+  font-family: 'Open Sans', sans-serif
+  font-style: normal
+  font-weight: 700
+  font-size: 16px
+  line-height: 1
+  color: #FF8989
+  align-self: flex-end
+.minTemp
+  grid-area: 2/2/3/3
+  font-family: 'Open Sans', sans-serif
+  font-style: normal
+  font-weight: 700
+  font-size: 16px
+  line-height: 1
+  color: #67C8FF
+
+.props
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 16px
+
+.rain
+  display: flex
+  gap: 4px
+.rainIcon
+  position: relative
+  width: 14px
+  height: 14px
+.rainValue
+  font-family: 'Open Sans', sans-serif
+  font-style: normal
+  font-weight: 400
+  font-size: 12px
+  line-height: 1
+  color: #fff
+
+.precipiationProbablity
+  display: flex
+  gap: 4px
+.precipiationProbablityIcon
+  position: relative
+  width: 16px
+  height: 14px
+.precipiationProbablityValue
+  font-family: 'Open Sans', sans-serif
+  font-style: normal
+  font-weight: 400
+  font-size: 12px
+  line-height: 1
+  color: #fff
