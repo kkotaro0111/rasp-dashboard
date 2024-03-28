@@ -13,11 +13,21 @@ type Props = {
 function weather({index}: Props) {
   const {weatherData} = useContext(WeatherContext)
   // ... some codes
+  function targetDay () {
+    const utcMilliSec = Date.now() + (24 * 60 * 60 * 1000) * index
+    const date:Date = new Date()
+    date.setTime(utcMilliSec)
+    return formattingDate(date)
+  }
+  function formattingDate(date:Date) {
+    return `${(date.getMonth() + 1).toString().padStart(2,'0')}/${(date.getDate()).toString().padStart(2,'0')}`
+  }
+
   return <>
     {weatherData && weatherData.current &&
       <>
         <div className={styles.container}>
-          <div className={styles.date}>03/28</div>
+          <div className={styles.date}>{targetDay()}</div>
           <div className={styles.weather}>
             <Image src={`/weather_${weatherData.daily.weather_code[index].toString().padStart(2, '0')}.svg`} fill={true} alt='' priority />
           </div>
