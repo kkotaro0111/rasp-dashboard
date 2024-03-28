@@ -26,11 +26,11 @@ function weather({}: Props) {
           <div className={styles.props}>
             <div className={styles.rain}>
               <div className={styles.rainIcon}><Image src='/icon_rainSum.svg' fill={true} alt='' /></div>
-              <div className={styles.rainValue}>{weatherData.current.rain} mm</div>
+              <div className={styles.rainValue}>{Math.round(weatherData.current.rain * 10 ) / 10} mm</div>
             </div>
             <div className={styles.precipiationProbablity}>
               <div className={styles.precipiationProbablityIcon}><Image src='/icon_prePro.svg' fill={true} alt='' /></div>
-              <div className={styles.precipiationProbablityValue}>{weatherData.current.precipitation} %</div>
+              <div className={styles.precipiationProbablityValue}>{Math.round(weatherData.current.precipitation * 10) / 10} %</div>
             </div>
 
           </div>
