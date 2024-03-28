@@ -4,17 +4,20 @@ import styles from './weather.module.sass'
 import Image from 'next/image'
 import {WeatherContext} from '@/provider/WeatherProvider'
 import {useContext} from 'react'
+import {ConfigContext} from '@/provider/ConfigProvider'
 
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
 function weather({}: Props) {
   const {weatherData} = useContext(WeatherContext)
+  const {location} = useContext(ConfigContext)
   // ... some codes
   return <>
     {weatherData && weatherData.current &&
       <>
         <div className={styles.container}>
+          <div className={styles.spot}>{location.name}</div>
           <div className={styles.weather}>
             <Image src={`/weather_${weatherData.current.weather_code.toString().padStart(2, '0')}.svg`} fill={true} alt='' priority />
           </div>
