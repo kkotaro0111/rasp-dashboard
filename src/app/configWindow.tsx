@@ -4,6 +4,7 @@ import Image from 'next/image'
 import {useContext, useEffect, useState} from 'react'
 import {ConfigContext} from '@/provider/ConfigProvider'
 import Timezone from '@/app/Timezone'
+import WeatherSpot from '@/app/weatherSpot'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
@@ -28,7 +29,7 @@ function configWindow({}: Props) {
           <div className={styles.line}>
             <div className={styles.label}>Weather Spot</div>
             <div className={styles.inputArea}>
-              <input className={styles.input} type='text'/>
+              <WeatherSpot />
             </div>
           </div>
         </div>

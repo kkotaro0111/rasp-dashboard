@@ -1,5 +1,6 @@
 'use client'
 import {createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState} from 'react'
+import {geoAPI} from '@/app/locationItem'
 
 type configType = {
   isFullscreen: boolean,
@@ -9,6 +10,8 @@ type configType = {
   timezone: string,
   setTimezone: Dispatch<SetStateAction<string>>,
   timezones: string[],
+  location: geoAPI,
+  setLocation: Dispatch<SetStateAction<geoAPI>>,
 }
 type Props = {
   children: ReactNode
@@ -19,8 +22,10 @@ export const ConfigContext = createContext({} as configType)
 function ConfigProvider({children}: Props) {
   // ... some codes
   const ls_timezone = localStorage.getItem('timezone')
+  const ls_location = localStorage.getItem('location')
   const [isFullscreen, setIsFullscreen] = useState(false)
-  const [isOpenConfig, setIsOpenConfig] = useState(true)
+  const [isOpenConfig, setIsOpenConfig] = useState(false)
+  const [location, setLocation] = useState({} as geoAPI)
   const [timezone, setTimezone] = useState("GMT")
   const timezones = [
     'America/Los_Angeles',
@@ -49,6 +54,10 @@ function ConfigProvider({children}: Props) {
         setTimezone(autoDetectTimezone)
       }
     }
+
+    if( ls_location ) {
+      setLocation(JSON.parse(ls_location) as geoAPI)
+    }
   }, [])
   useEffect(() => {
     if(isFullscreen) {
@@ -62,9 +71,12 @@ function ConfigProvider({children}: Props) {
   useEffect(() => {
     localStorage.setItem('timezone', timezone)
   }, [timezone])
+  useEffect(() => {
+    localStorage.setItem('location', JSON.stringify(location))
+  }, [location])
 
   return <>
-    <ConfigContext.Provider value={{isFullscreen, setIsFullscreen, isOpenConfig, setIsOpenConfig, timezone, setTimezone, timezones}}>
+    <ConfigContext.Provider value={{isFullscreen, setIsFullscreen, isOpenConfig, setIsOpenConfig, timezone, setTimezone, timezones, location, setLocation}}>
       {children}
     </ConfigContext.Provider>
   </>

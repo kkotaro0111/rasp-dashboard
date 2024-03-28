@@ -32,11 +32,11 @@ function WeatherProvider ({ children }: Props) {
   const [weatherData, setWeatherData] = useState<WeatherType>({} as WeatherType)
   const intervalRef = useRef(0)
 
-  const {timezone} = useContext(ConfigContext)
+  const {timezone, location} = useContext(ConfigContext)
 
   const params = {
-    "latitude": 35.6895,
-    "longitude": 139.6917,
+    "latitude": location.latitude,
+    "longitude": location.longitude,
     "current": ["temperature_2m", "precipitation", "rain", "weather_code"],
     "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "rain_sum", "precipitation_probability_max"],
     "timezone": timezone,
@@ -45,26 +45,28 @@ function WeatherProvider ({ children }: Props) {
   const url = "https://api.open-meteo.com/v1/forecast"
 
   async function fetchData () {
-    const responses = await fetchWeatherApi(url, params);
-    const current = responses[0].current()!
-    const daily = responses[0].daily()!
+    if( params.latitude && params.longitude ) {
+      const responses = await fetchWeatherApi(url, params);
+      const current = responses[0].current()!
+      const daily = responses[0].daily()!
 
-    setWeatherData({
-      current: {
-        temperature_2m: current.variables(0)!.value(),
-        precipitation: current.variables(1)!.value(),
-        rain: current.variables(2)!.value(),
-        weather_code: current.variables(3)!.value(),
-      },
-      daily: {
-        weather_code: daily.variables(0)!.valuesArray()!,
-        temperature_2m_max: daily.variables(1)!.valuesArray()!,
-        temperature_2m_min: daily.variables(2)!.valuesArray()!,
-        rain_sum: daily.variables(3)!.valuesArray()!,
-        precipitation_probability_max: daily.variables(4)!.valuesArray()!,
-      },
+      setWeatherData({
+        current: {
+          temperature_2m: current.variables(0)!.value(),
+          precipitation: current.variables(1)!.value(),
+          rain: current.variables(2)!.value(),
+          weather_code: current.variables(3)!.value(),
+        },
+        daily: {
+          weather_code: daily.variables(0)!.valuesArray()!,
+          temperature_2m_max: daily.variables(1)!.valuesArray()!,
+          temperature_2m_min: daily.variables(2)!.valuesArray()!,
+          rain_sum: daily.variables(3)!.valuesArray()!,
+          precipitation_probability_max: daily.variables(4)!.valuesArray()!,
+        },
 
-    })
+      })
+    }
   }
 
   useEffect(() => {
@@ -76,6 +78,9 @@ function WeatherProvider ({ children }: Props) {
      clearInterval(intervalRef.current)
    }
   }, [])
+  useEffect(() => {
+    fetchData()
+  }, [location])
 
   return <>
       <WeatherContext.Provider value={{weatherData}} >
