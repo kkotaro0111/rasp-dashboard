@@ -7,6 +7,7 @@ import Weather from '@/app/weather'
 import WeekWeathers from '@/app/weekWeathers'
 import {useContext} from 'react'
 import {DogContext} from '@/app/DogProvider'
+import OptionButtons from '@/app/optionButtons'
 
 type Props = {}
 
@@ -20,7 +21,7 @@ function Stage({}: Props) {
         <div className={styles.weather}><Cell><Weather></Weather></Cell></div>
         <div className={styles.clock}><Cell><Clock></Clock></Cell></div>
         <div className={styles.weekly}><Cell><WeekWeathers></WeekWeathers></Cell></div>
-        <div className={styles.config}><Cell></Cell></div>
+        <div className={styles.config}><Cell><OptionButtons></OptionButtons></Cell></div>
       </div>
     </div>
   </>
