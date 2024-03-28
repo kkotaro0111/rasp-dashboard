@@ -1,8 +1,8 @@
 import styles from "./page.module.css";
 import Stage from '@/app/stage'
-import WeatherProvider from '@/app/WeatherProvider'
-import DogProvider from '@/app/DogProvider'
-import ConfigProvider from '@/app/ConfigProvider'
+import WeatherProvider from '@/provider/WeatherProvider'
+import DogProvider from '@/provider/DogProvider'
+import ConfigProvider from '@/provider/ConfigProvider'
 
 export default function Home() {
   return (

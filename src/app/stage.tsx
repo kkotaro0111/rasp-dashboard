@@ -6,7 +6,7 @@ import Clock from '@/app/clock'
 import Weather from '@/app/weather'
 import WeekWeathers from '@/app/weekWeathers'
 import {useContext} from 'react'
-import {DogContext} from '@/app/DogProvider'
+import {DogContext} from '@/provider/DogProvider'
 import OptionButtons from '@/app/optionButtons'
 
 type Props = {}

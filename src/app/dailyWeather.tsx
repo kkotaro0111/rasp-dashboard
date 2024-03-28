@@ -2,7 +2,7 @@
 
 import styles from './dailyWeather.module.sass'
 import Image from 'next/image'
-import {WeatherContext} from '@/app/WeatherProvider'
+import {WeatherContext} from '@/provider/WeatherProvider'
 import {useContext} from 'react'
 
 type Props = {

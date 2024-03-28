@@ -2,7 +2,7 @@
 import styles from './optionButtons.module.sass'
 import Image from 'next/image'
 import {useContext} from 'react'
-import {ConfigContext} from '@/app/ConfigProvider'
+import {ConfigContext} from '@/provider/ConfigProvider'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
