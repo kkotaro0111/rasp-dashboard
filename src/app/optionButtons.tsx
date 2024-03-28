@@ -8,10 +8,10 @@ type Props = {}
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
 function optionButtons({}: Props) {
   // ... some codes
-  const {isFullscreen, setIsFullscreen} = useContext(ConfigContext)
+  const {isFullscreen, setIsFullscreen, setIsOpenConfig} = useContext(ConfigContext)
   return <>
     <div className={styles.container}>
-      <div className={styles.config}><Image src={`/icon_config.svg`} width={40} height={40} alt="Config" /></div>
+      <div className={styles.config} onClick={() => setIsOpenConfig(true)}><Image src={`/icon_config.svg`} width={40} height={40} alt="Config" /></div>
       {document.fullscreenEnabled &&
         <div className={styles.fullscreen} onClick={() => setIsFullscreen(!isFullscreen)}>
           { isFullscreen && <Image src={`/icon_defaultScreen.svg`} width={40} height={40} alt="exitFullScreen" />}

@@ -1,6 +1,7 @@
 'use client'
-import {createContext, ReactNode, useEffect, useRef, useState} from 'react'
+import {createContext, ReactNode, useContext, useEffect, useRef, useState} from 'react'
 import { fetchWeatherApi } from 'openmeteo'
+import {ConfigContext} from '@/provider/ConfigProvider'
 
 type WeatherType = {
   current: {
@@ -31,12 +32,14 @@ function WeatherProvider ({ children }: Props) {
   const [weatherData, setWeatherData] = useState<WeatherType>({} as WeatherType)
   const intervalRef = useRef(0)
 
+  const {timezone} = useContext(ConfigContext)
+
   const params = {
     "latitude": 35.6895,
     "longitude": 139.6917,
     "current": ["temperature_2m", "precipitation", "rain", "weather_code"],
     "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "rain_sum", "precipitation_probability_max"],
-    "timezone": "Asia/Tokyo",
+    "timezone": timezone,
     "forecast_days": 8
   }
   const url = "https://api.open-meteo.com/v1/forecast"

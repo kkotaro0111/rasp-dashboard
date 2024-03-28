@@ -3,7 +3,11 @@ import {createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState}
 
 type configType = {
   isFullscreen: boolean,
-  setIsFullscreen: Dispatch<SetStateAction<boolean>>
+  setIsFullscreen: Dispatch<SetStateAction<boolean>>,
+  isOpenConfig: boolean,
+  setIsOpenConfig: Dispatch<SetStateAction<boolean>>,
+  timezone: string,
+  setTimezone: Dispatch<SetStateAction<string>>,
 }
 type Props = {
   children: ReactNode
@@ -14,6 +18,8 @@ export const ConfigContext = createContext({} as configType)
 function ConfigProvider({children}: Props) {
   // ... some codes
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const [isOpenConfig, setIsOpenConfig] = useState(true)
+  const [timezone, setTimezone] = useState("GMT")
   useEffect(() => {
     if(isFullscreen) {
       document.querySelector('main')!.requestFullscreen()
@@ -25,7 +31,7 @@ function ConfigProvider({children}: Props) {
   }, [isFullscreen])
 
   return <>
-    <ConfigContext.Provider value={{isFullscreen, setIsFullscreen}}>
+    <ConfigContext.Provider value={{isFullscreen, setIsFullscreen, isOpenConfig, setIsOpenConfig, timezone, setTimezone}}>
       {children}
     </ConfigContext.Provider>
   </>
