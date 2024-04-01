@@ -1,5 +1,6 @@
 'use client'
 import {createContext, ReactNode, useEffect, useState} from 'react'
+import useInterval from 'use-interval'
 
 type Props = {
   children: ReactNode
@@ -18,6 +19,10 @@ function DogProvider({children}: Props) {
     setPath(resJson.message)
   }
 
+  useInterval(() => {
+    fetchData()
+  }, 60 * 60 * 1000) // 1hour
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -25,7 +30,6 @@ function DogProvider({children}: Props) {
     <DogContext.Provider value={path}>
       {children}
     </DogContext.Provider>
-
   </>
 }
 
