@@ -2,6 +2,7 @@
 import {createContext, ReactNode, useContext, useEffect, useRef, useState} from 'react'
 import { fetchWeatherApi } from 'openmeteo'
 import {ConfigContext} from '@/provider/ConfigProvider'
+import useInterval from 'use-interval'
 
 type WeatherType = {
   current: {
@@ -69,15 +70,9 @@ function WeatherProvider ({ children }: Props) {
     }
   }
 
-  useEffect(() => {
+  useInterval(() => {
     fetchData()
-    intervalRef.current = window.setInterval(() => {
-      fetchData()
-    }, 10 * 60 * 1000) // 10 min
-   return () => {
-     clearInterval(intervalRef.current)
-   }
-  }, [])
+  }, 10 * 60 * 1000) // 10min
   useEffect(() => {
     fetchData()
   }, [location])
