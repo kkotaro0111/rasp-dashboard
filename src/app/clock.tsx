@@ -2,6 +2,7 @@
 
 import styles from './clock.module.sass'
 import {useEffect, useRef, useState} from 'react'
+import useInterval from 'use-interval'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
@@ -11,10 +12,12 @@ function clock({}: Props) {
   const [currentTime, setCurrentTime] = useState('')
   const intervalRef = useRef(0)
 
-  useEffect(() => {
-    timeStart()
-    return () => clearInterval(intervalRef.current)
-  }, [])
+  useInterval(() => {
+    const date = getDate()
+    setCurrentDate(formattingDate(date))
+    setCurrentTime(formattingTime(date))
+  }, 1000)
+
   function getDate () {
     return new Date()
   }
@@ -25,15 +28,7 @@ function clock({}: Props) {
   function formattingTime (date:Date) {
     return `${(date.getHours()).toString().padStart(2,'0')}:${(date.getMinutes()).toString().padStart(2,'0')}:${(date.getSeconds()).toString().padStart(2,'0')}`
   }
-
-  function timeStart() {
-    intervalRef.current = window.setInterval(() => {
-      const date = getDate()
-      setCurrentDate(formattingDate(date))
-      setCurrentTime(formattingTime(date))
-    }, 1000)
-  }
-
+  
 
   // ... some codes
   return <>
