@@ -21,12 +21,11 @@ export const ConfigContext = createContext({} as configType)
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
 function ConfigProvider({children}: Props) {
   // ... some codes
-  const ls_timezone = localStorage.getItem('timezone')
-  const ls_location = localStorage.getItem('location')
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [isOpenConfig, setIsOpenConfig] = useState(false)
   const [location, setLocation] = useState({} as geoAPI)
   const [timezone, setTimezone] = useState("GMT")
+  const [initialized, setInitialized ] = useState(false)
   const timezones = [
     'America/Los_Angeles',
     'America/Denver',
@@ -44,7 +43,9 @@ function ConfigProvider({children}: Props) {
     'Australia/Sydney',
     'Pacific/Auckland',
   ]
+
   useEffect(() => {
+    const ls_timezone = localStorage.getItem('timezone')
     if( ls_timezone ) {
       setTimezone(ls_timezone)
     } else {
@@ -55,9 +56,11 @@ function ConfigProvider({children}: Props) {
       }
     }
 
+    const ls_location = localStorage.getItem('location')
     if( ls_location ) {
       setLocation(JSON.parse(ls_location) as geoAPI)
     }
+    setInitialized(true)
   }, [])
   useEffect(() => {
     if(isFullscreen) {
@@ -69,10 +72,14 @@ function ConfigProvider({children}: Props) {
     }
   }, [isFullscreen])
   useEffect(() => {
-    localStorage.setItem('timezone', timezone)
+    if ( initialized ) {
+      localStorage.setItem('timezone', timezone)
+    }
   }, [timezone])
   useEffect(() => {
-    localStorage.setItem('location', JSON.stringify(location))
+    if ( initialized ) {
+      localStorage.setItem('location', JSON.stringify(location))
+    }
   }, [location])
 
   return <>
