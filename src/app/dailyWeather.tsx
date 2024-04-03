@@ -37,9 +37,9 @@ function weather({index}: Props) {
             <div className={styles.minTemp}>{Math.round(weatherData.daily.temperature_2m_min[index] * 10) / 10}°</div>
           </div>
           <div className={styles.props}>
-            <div className={styles.precipiationProbablity}>
-              <div className={styles.precipiationProbablityIcon}><Image src='/icon_prePro.svg' fill={true} alt='' /></div>
-              <div className={styles.precipiationProbablityValue}>{weatherData.daily.precipitation_probability_max[index]} %</div>
+            <div className={styles.precipitationProbability}>
+              <div className={styles.precipitationProbabilityIcon}><Image src='/icon_prePro.svg' fill={true} alt='' /></div>
+              <div className={styles.precipitationProbabilityValue}>{weatherData.daily.precipitation_probability_max[index]} %</div>
             </div>
 
           </div>
