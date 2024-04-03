@@ -33,7 +33,7 @@ function weather({}: Props) {
             </div>
             <div className={styles.precipiationProbablity}>
               <div className={styles.precipiationProbablityIcon}><Image src='/icon_prePro.svg' fill={true} alt='' /></div>
-              <div className={styles.precipiationProbablityValue}>{Math.round(weatherData.current.precipitation * 10) / 10} %</div>
+              <div className={styles.precipiationProbablityValue}>{Math.round(weatherData.daily.precipitation_probability_max[0] * 10) / 10} %</div>
             </div>
 
           </div>

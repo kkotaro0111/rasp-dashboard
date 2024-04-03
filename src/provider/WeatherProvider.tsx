@@ -7,7 +7,6 @@ import useInterval from 'use-interval'
 type WeatherType = {
   current: {
     weather_code: number,
-    precipitation: number,
     rain: number,
     temperature_2m: number
   },
@@ -38,7 +37,7 @@ function WeatherProvider ({ children }: Props) {
   const params = {
     "latitude": location.latitude,
     "longitude": location.longitude,
-    "current": ["temperature_2m", "precipitation", "rain", "weather_code"],
+    "current": ["temperature_2m", "rain", "weather_code"],
     "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "rain_sum", "precipitation_probability_max"],
     "timezone": timezone,
     "forecast_days": 8
@@ -54,9 +53,8 @@ function WeatherProvider ({ children }: Props) {
       setWeatherData({
         current: {
           temperature_2m: current.variables(0)!.value(),
-          precipitation: current.variables(1)!.value(),
-          rain: current.variables(2)!.value(),
-          weather_code: current.variables(3)!.value(),
+          rain: current.variables(1)!.value(),
+          weather_code: current.variables(2)!.value(),
         },
         daily: {
           weather_code: daily.variables(0)!.valuesArray()!,
