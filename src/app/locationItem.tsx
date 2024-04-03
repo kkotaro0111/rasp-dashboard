@@ -1,6 +1,6 @@
 import styles from './locationItem.module.sass'
-import {Simulate} from 'react-dom/test-utils'
-import click = Simulate.click
+
+
 type Props = {
   loc: geoAPI,
   clickHandler: (obj:geoAPI) => void
