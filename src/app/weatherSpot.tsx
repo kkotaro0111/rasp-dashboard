@@ -1,4 +1,4 @@
-'use client'
+
 import styles from './weatherSpot.module.sass'
 import {useContext, useState} from 'react'
 import LocationItem, {geoAPI} from '@/app/locationItem'

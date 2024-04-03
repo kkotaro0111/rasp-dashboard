@@ -1,4 +1,4 @@
-'use client'
+
 import styles from './optionButtons.module.sass'
 import Image from 'next/image'
 import {useContext} from 'react'

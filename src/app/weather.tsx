@@ -1,4 +1,4 @@
-'use client'
+
 
 import styles from './weather.module.sass'
 import Image from 'next/image'

@@ -1,4 +1,5 @@
 'use client'
+
 import styles from './configWindow.module.sass'
 import Image from 'next/image'
 import {useContext, useEffect, useState} from 'react'

@@ -1,4 +1,4 @@
-'use client'
+
 
 import styles from './clock.module.sass'
 import {useEffect, useRef, useState} from 'react'
