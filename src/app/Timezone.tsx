@@ -10,9 +10,9 @@ function Timezone({}: Props) {
 
   return <>
     <div className={styles.container}>
-      <select className={styles.select} name="timezone" aria-label="Timezone" onChange={(e) => setTimezone(e.target.value)}>
+      <select className={styles.select} name="timezone" aria-label="Timezone" value={timezone} onChange={(e) => setTimezone(e.target.value)}>
         { timezones.map((tz, index) => (
-          <option value={tz} selected={timezone === tz} key={index}>{tz}</option>
+          <option value={tz} key={index}>{tz}</option>
         ))}
       </select>
     </div>
