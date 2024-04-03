@@ -14,7 +14,6 @@ type WeatherType = {
     weather_code: Float32Array,
     temperature_2m_max: Float32Array,
     temperature_2m_min: Float32Array,
-    rain_sum: Float32Array,
     precipitation_probability_max: Float32Array
   }
 }
@@ -38,7 +37,7 @@ function WeatherProvider ({ children }: Props) {
     "latitude": location.latitude,
     "longitude": location.longitude,
     "current": ["temperature_2m", "rain", "weather_code"],
-    "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "rain_sum", "precipitation_probability_max"],
+    "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "precipitation_probability_max"],
     "timezone": timezone,
     "forecast_days": 8
   }
@@ -60,8 +59,7 @@ function WeatherProvider ({ children }: Props) {
           weather_code: daily.variables(0)!.valuesArray()!,
           temperature_2m_max: daily.variables(1)!.valuesArray()!,
           temperature_2m_min: daily.variables(2)!.valuesArray()!,
-          rain_sum: daily.variables(3)!.valuesArray()!,
-          precipitation_probability_max: daily.variables(4)!.valuesArray()!,
+          precipitation_probability_max: daily.variables(3)!.valuesArray()!,
         },
 
       })
