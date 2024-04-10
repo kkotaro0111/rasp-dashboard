@@ -23,7 +23,7 @@ function WeekWeathers({}: Props) {
       }
       {!location.id &&
           <div className={styles.announcement}>
-            Please set "Weather Spot" from the settings screen.
+            Please set &quot;Weather Spot&quot; from the settings screen.
           </div>
       }
 
