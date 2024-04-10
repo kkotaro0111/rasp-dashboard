@@ -41,7 +41,7 @@ function ConfigProvider({children}: Props) {
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [isOpenConfig, setIsOpenConfig] = useState(false)
   const [location, setLocation] = useState({} as geoAPI)
-  const [timezone, setTimezone] = useState("GMT")
+  const [timezone, setTimezone] = useState("")
   const renderFlagRef = useRef(false)
 
   useEffect(() => {
