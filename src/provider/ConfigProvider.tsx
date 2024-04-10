@@ -16,6 +16,23 @@ type configType = {
 type Props = {
   children: ReactNode
 }
+const timezones = [
+  'America/Los_Angeles',
+  'America/Denver',
+  'America/Chicago',
+  'America/New_York',
+  'America/Sao_Paulo',
+  'GMT',
+  'Europe/London',
+  'Europe/Berlin',
+  'Europe/Moscow',
+  'Africa/Cairo',
+  'Asia/Bangkok',
+  'Asia/Singapore',
+  'Asia/Tokyo',
+  'Australia/Sydney',
+  'Pacific/Auckland',
+]
 
 export const ConfigContext = createContext({} as configType)
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
@@ -26,23 +43,6 @@ function ConfigProvider({children}: Props) {
   const [location, setLocation] = useState({} as geoAPI)
   const [timezone, setTimezone] = useState("GMT")
   const [initialized, setInitialized ] = useState(false)
-  const timezones = [
-    'America/Los_Angeles',
-    'America/Denver',
-    'America/Chicago',
-    'America/New_York',
-    'America/Sao_Paulo',
-    'GMT',
-    'Europe/London',
-    'Europe/Berlin',
-    'Europe/Moscow',
-    'Africa/Cairo',
-    'Asia/Bangkok',
-    'Asia/Singapore',
-    'Asia/Tokyo',
-    'Australia/Sydney',
-    'Pacific/Auckland',
-  ]
 
   useEffect(() => {
     const ls_timezone = localStorage.getItem('timezone')
