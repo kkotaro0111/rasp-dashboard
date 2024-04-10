@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0b82ede5-467b-4244-8faa-c973018ea966/deploy-status)](https://app.netlify.com/sites/rassdashboard/deploys)
+
 # プロジェクト概要
 ファイルサーバーにしているRaspberry Piの、余っているリソースの有効活用の一つとして、繋いだモニタ現在時刻と週間天気予報を表示するだけのページ
 
