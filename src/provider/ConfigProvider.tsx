@@ -1,5 +1,5 @@
 'use client'
-import {createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState} from 'react'
+import {createContext, Dispatch, ReactNode, SetStateAction, useEffect, useRef, useState} from 'react'
 import {geoAPI} from '@/app/LocationItem'
 
 type configType = {
@@ -42,7 +42,7 @@ function ConfigProvider({children}: Props) {
   const [isOpenConfig, setIsOpenConfig] = useState(false)
   const [location, setLocation] = useState({} as geoAPI)
   const [timezone, setTimezone] = useState("GMT")
-  const [initialized, setInitialized ] = useState(false)
+  const renderFlagRef = useRef(false)
 
   useEffect(() => {
     const ls_timezone = localStorage.getItem('timezone')
@@ -60,7 +60,7 @@ function ConfigProvider({children}: Props) {
     if( ls_location ) {
       setLocation(JSON.parse(ls_location) as geoAPI)
     }
-    setInitialized(true)
+    renderFlagRef.current = true
   }, [])
   useEffect(() => {
     if(isFullscreen) {
@@ -72,12 +72,12 @@ function ConfigProvider({children}: Props) {
     }
   }, [isFullscreen])
   useEffect(() => {
-    if ( initialized ) {
+    if ( renderFlagRef.current ) {
       localStorage.setItem('timezone', timezone)
     }
   }, [timezone])
   useEffect(() => {
-    if ( initialized ) {
+    if ( renderFlagRef.current ) {
       localStorage.setItem('location', JSON.stringify(location))
     }
   }, [location])
