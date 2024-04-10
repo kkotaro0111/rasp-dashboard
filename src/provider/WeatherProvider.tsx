@@ -70,6 +70,7 @@ function WeatherProvider ({ children }: Props) {
   }, 15 * 60 * 1000) // 15min
   useEffect(() => {
     void fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location])
 
   return <>
