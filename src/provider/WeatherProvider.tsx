@@ -29,7 +29,6 @@ type Props = {
 export const WeatherContext = createContext({} as WeatherContextType)
 function WeatherProvider ({ children }: Props) {
   const [weatherData, setWeatherData] = useState<WeatherType>({} as WeatherType)
-  const intervalRef = useRef(0)
 
   const {timezone, location} = useContext(ConfigContext)
 
