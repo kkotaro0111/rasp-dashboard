@@ -1,5 +1,5 @@
 'use client'
-import styles from './stage.module.sass'
+import styles from './Stage.module.sass'
 import Cell from '@/app/Cell'
 import Clock from '@/app/Clock'
 import Weather from '@/app/Weather'

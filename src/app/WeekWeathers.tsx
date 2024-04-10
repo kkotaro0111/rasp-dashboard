@@ -1,4 +1,4 @@
-import styles from './weekWeathers.module.sass'
+import styles from './WeekWeathers.module.sass'
 import DailyWeather from '@/app/DailyWeather'
 type Props = {}
 
