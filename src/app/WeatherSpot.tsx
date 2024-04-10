@@ -35,7 +35,7 @@ function WeatherSpot({}: Props) {
         <div className={styles.searchResult} >
           <ul className={styles.searchResultList} >
           { locationList.map((loc) => (
-              <li className={styles.searchResultItem}>
+              <li className={styles.searchResultItem} key={loc.id}>
                 <LocationItem loc={loc} clickHandler={onSelect} />
               </li>
           ))}
