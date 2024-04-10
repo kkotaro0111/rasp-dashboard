@@ -1,3 +1,16 @@
+%button
+  cursor: pointer
+  transition: opacity .1s linear
+  opacity: .6
+  &:hover
+    opacity: .36
+
+@keyframes blink
+  0%
+    filter: drop-shadow(0 0 0 #ffff33)
+  100%
+    filter: drop-shadow(0 0 6px #ffff33)
+
 .container
   display: flex
   flex-direction: column
@@ -8,11 +21,10 @@
   gap: 40px
 .config
   @extend %button
+.highlightConfig
+  @extend %button
+  opacity: 1
+  animation: blink 1s linear infinite alternate
 .fullscreen
   @extend %button
 
-%button
-  cursor: pointer
-  transition: opacity .1s linear
-  &:hover
-    opacity: .6

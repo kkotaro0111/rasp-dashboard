@@ -9,7 +9,7 @@ type Props = {}
 function OptionButtons({}: Props) {
   // ... some codes
   const [isClient, setIsClient] = useState(false)
-  const {isFullscreen, setIsFullscreen, setIsOpenConfig} = useContext(ConfigContext)
+  const {location, isFullscreen, setIsFullscreen, setIsOpenConfig} = useContext(ConfigContext)
 
   useEffect(() => {
     setIsClient(true)
@@ -19,7 +19,7 @@ function OptionButtons({}: Props) {
   }
   return <>
     <div className={styles.container}>
-      <div className={styles.config} onClick={() => setIsOpenConfig(true)}><Image src={`/icon_config.svg`} width={40} height={40} alt="Config" priority /></div>
+      <div className={location.id ? styles.config : styles.highlightConfig} onClick={() => setIsOpenConfig(true)}><Image src={`/icon_config.svg`} width={40} height={40} alt="Config" priority /></div>
       { isClient && document.fullscreenEnabled &&
         <div className={styles.fullscreen} onClick={triggerFullscreen}>
           { isFullscreen && <Image src={`/icon_defaultScreen.svg`} width={40} height={40} alt="exitFullScreen" />}
