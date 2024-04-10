@@ -54,7 +54,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 # デモ
 - Netlify にて公開中
-- [https://master--rassdashboard.netlify.app/](https://master--rassdashboard.netlify.app/)
+- [https://rassdashboard.netlify.app/](https://rassdashboard.netlify.app/)
 
 # コントリビューション
 - ご意見・ご感想
