@@ -1,5 +1,4 @@
-import styles from './locationItem.module.sass'
-
+import styles from './LocationItem.module.sass'
 
 type Props = {
   loc: geoAPI,
@@ -14,7 +13,7 @@ export type geoAPI = {
 }
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
-function locationItem({loc, clickHandler}: Props) {
+function LocationItem({loc, clickHandler}: Props) {
   function onClick(){
     clickHandler(loc)
   }
@@ -30,4 +29,4 @@ function locationItem({loc, clickHandler}: Props) {
   </>
 }
 
-export default locationItem
+export default LocationItem

@@ -1,13 +1,13 @@
 
-import styles from './weatherSpot.module.sass'
+import styles from './WeatherSpot.module.sass'
 import {useContext, useState} from 'react'
-import LocationItem, {geoAPI} from '@/app/locationItem'
+import LocationItem, {geoAPI} from './LocationItem'
 import {ConfigContext} from '@/provider/ConfigProvider'
 
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
-function weatherSpot({}: Props) {
+function WeatherSpot({}: Props) {
   // ... some codes
   const [locationName, setLocationName] = useState('')
   const [locationList, setLocationList] = useState([] as geoAPI[])
@@ -46,4 +46,4 @@ function weatherSpot({}: Props) {
   </>
 }
 
-export default weatherSpot
+export default WeatherSpot

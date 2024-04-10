@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './cell.module.sass'
+import styles from './Cell.module.sass'
 
 type Props = {}
 

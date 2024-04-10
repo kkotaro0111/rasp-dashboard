@@ -1,12 +1,12 @@
 'use client'
 import styles from './stage.module.sass'
-import Cell from '@/app/cell'
-import Clock from '@/app/clock'
-import Weather from '@/app/weather'
-import WeekWeathers from '@/app/weekWeathers'
+import Cell from '@/app/Cell'
+import Clock from '@/app/Clock'
+import Weather from '@/app/Weather'
+import WeekWeathers from '@/app/WeekWeathers'
 import {useContext} from 'react'
 import {DogContext} from '@/provider/DogProvider'
-import OptionButtons from '@/app/optionButtons'
+import OptionButtons from '@/app/OptionButtons'
 
 type Props = {}
 

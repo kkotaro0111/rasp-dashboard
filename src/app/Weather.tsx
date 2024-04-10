@@ -1,6 +1,6 @@
 
 
-import styles from './weather.module.sass'
+import styles from './Weather.module.sass'
 import Image from 'next/image'
 import {WeatherContext} from '@/provider/WeatherProvider'
 import {useContext} from 'react'
@@ -9,7 +9,7 @@ import {ConfigContext} from '@/provider/ConfigProvider'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
-function weather({}: Props) {
+function Weather({}: Props) {
   const {weatherData} = useContext(WeatherContext)
   const {location} = useContext(ConfigContext)
   // ... some codes
@@ -43,4 +43,4 @@ function weather({}: Props) {
   </>
 }
 
-export default weather
+export default Weather

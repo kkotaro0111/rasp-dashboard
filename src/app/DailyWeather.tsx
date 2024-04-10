@@ -1,6 +1,6 @@
 
 
-import styles from './dailyWeather.module.sass'
+import styles from './DailyWeather.module.sass'
 import Image from 'next/image'
 import {WeatherContext} from '@/provider/WeatherProvider'
 import {useContext} from 'react'
@@ -10,7 +10,7 @@ type Props = {
 }
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
-function weather({index}: Props) {
+function DailyWeather({index}: Props) {
   const {weatherData} = useContext(WeatherContext)
   // ... some codes
   function targetDay () {
@@ -48,4 +48,4 @@ function weather({index}: Props) {
   </>
 }
 
-export default weather
+export default DailyWeather

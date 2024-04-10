@@ -1,12 +1,12 @@
 
-import styles from './optionButtons.module.sass'
+import styles from './OptionButtons.module.sass'
 import Image from 'next/image'
 import {useContext, useEffect, useState} from 'react'
 import {ConfigContext} from '@/provider/ConfigProvider'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
-function optionButtons({}: Props) {
+function OptionButtons({}: Props) {
   // ... some codes
   const [isClient, setIsClient] = useState(false)
   const {isFullscreen, setIsFullscreen, setIsOpenConfig} = useContext(ConfigContext)
@@ -30,4 +30,4 @@ function optionButtons({}: Props) {
   </>
 }
 
-export default optionButtons
+export default OptionButtons

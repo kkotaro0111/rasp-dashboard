@@ -1,15 +1,15 @@
 'use client'
 
-import styles from './configWindow.module.sass'
+import styles from './ConfigWindow.module.sass'
 import Image from 'next/image'
 import {useContext, useEffect, useState} from 'react'
 import {ConfigContext} from '@/provider/ConfigProvider'
 import Timezone from '@/app/Timezone'
-import WeatherSpot from '@/app/weatherSpot'
+import WeatherSpot from '@/app/WeatherSpot'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
-function configWindow({}: Props) {
+function ConfigWindow({}: Props) {
   // ... some codes
   const {isOpenConfig, setIsOpenConfig} = useContext(ConfigContext)
 
@@ -39,4 +39,4 @@ function configWindow({}: Props) {
   </>
 }
 
-export default configWindow
+export default ConfigWindow

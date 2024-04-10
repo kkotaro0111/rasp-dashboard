@@ -1,9 +1,9 @@
 import styles from './weekWeathers.module.sass'
-import DailyWeather from '@/app/dailyWeather'
+import DailyWeather from '@/app/DailyWeather'
 type Props = {}
 
 // if it uses 'slot', you need specify {children}: React.PropsWithChildren<Props>
-function weekWeathers({}: Props) {
+function WeekWeathers({}: Props) {
   // ... some codes
   return <>
     <div className={styles.container}>
@@ -20,4 +20,4 @@ function weekWeathers({}: Props) {
   </>
 }
 
-export default weekWeathers
+export default WeekWeathers
