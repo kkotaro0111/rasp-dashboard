@@ -66,10 +66,10 @@ function WeatherProvider ({ children }: Props) {
   }
 
   useInterval(() => {
-    fetchData()
+    void fetchData()
   }, 15 * 60 * 1000) // 15min
   useEffect(() => {
-    fetchData()
+    void fetchData()
   }, [location])
 
   return <>
